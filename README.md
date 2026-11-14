@@ -1,19 +1,42 @@
 # VectorIA: Asistente Inteligente para la Vigilancia del Dengue en Costa Rica
 
-**Proyecto 2 – Inteligencia Artificial Aplicada**  
-Colegio Universitario de Cartago (CUC)
+![Python](https://img.shields.io/badge/Python-3.11%E2%80%933.13-3776AB?logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Keras-FF6F00?logo=tensorflow&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?logo=fastapi&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)
+
+**Proyecto 2 – Inteligencia Artificial Aplicada (BD-151)** · Colegio Universitario de Cartago (CUC)
+
+Sistema que combina tres redes neuronales para apoyar la vigilancia del dengue en Costa Rica: identifica la especie del mosquito en una foto, pronostica los casos de las próximas 4 semanas y recomienda una acción preventiva. Los modelos se sirven con una API en FastAPI y se usan desde una app en Streamlit.
 
 ---
 
 ## 👥 Proyecto en equipo y mi aporte
 
-Proyecto desarrollado en equipo para el curso **BD-151 Inteligencia Artificial Aplicada** del CUC.
-Repositorio original del equipo: [GaboSM1507/Proyecto-VectorIA](https://github.com/GaboSM1507/Proyecto-VectorIA).
+Proyecto desarrollado en equipo. Repositorio original del equipo: [GaboSM1507/Proyecto-VectorIA](https://github.com/GaboSM1507/Proyecto-VectorIA).
 
 **Mi aporte (Jeremy Ramírez Pérez):**
-- Desarrollé el **Módulo 2**: pronóstico de casos de dengue a 4 semanas con **SimpleRNN y LSTM**.
-- Integré el **informe técnico** del proyecto.
+- Desarrollé el **Módulo 2**: pronóstico de casos de dengue a 4 semanas con **SimpleRNN y LSTM** (`notebooks/03_LSTM_Casos.ipynb`, `src/train/lstm.py`).
+- Integré el **informe técnico** del proyecto (`INFORME_TECNICO.md`).
 - Revisé y corregí partes del trabajo del resto del equipo.
+
+---
+
+## ⚡ En resumen
+
+| Módulo | Modelo | Resultado principal |
+|---|---|---|
+| 1. Identificación de mosquitos | CNN propia con recorte · MobileNetV2 | **88.0 % F1 macro** (meta: 85 %) |
+| 2. Pronóstico de casos (4 semanas) | SimpleRNN · LSTM | SimpleRNN: **RMSE 260** contra 638 del baseline estacional |
+| 3. Recomendación de acciones | ANN multiclase | **90.8 % de exactitud** (promedio de 5 semillas) |
+
+**Pronóstico de la SimpleRNN contra los casos reales (prueba 2023–2024):**
+
+![Pronóstico SimpleRNN](docs/img/pronostico_simplernn.png)
+
+**Matrices de confusión de la clasificación de mosquitos:**
+
+![Matrices de confusión](docs/img/matrices_confusion_cnn.png)
 
 ---
 
@@ -339,13 +362,13 @@ Se recomienda utilizar una versión de Python compatible con TensorFlow 2.21.
 ### Clonar el repositorio
 
 ```bash
-git clone https://github.com/GaboSM1507/Proyecto-VectorIA.git
+git clone https://github.com/jeremyramirezperez-ui/VectorIA.git
 ```
 
 Ingresar a la carpeta:
 
 ```bash
-cd Proyecto-VectorIA
+cd VectorIA
 ```
 
 ### Crear el entorno virtual
